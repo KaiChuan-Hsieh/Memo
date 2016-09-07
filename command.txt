@@ -10,3 +10,9 @@ git send-email --no-chain-reply-to --thread --suppress-cc all \
 --to '<open list>' \
 <patch file>
 ================================================================
+Push new project to github
+
+1. Create new repository in Github
+2. git remote add origin https://github.com/KaiChuan-Hsieh/<repository>.git
+3. git push -u origin master
+================================================================
