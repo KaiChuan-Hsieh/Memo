@@ -1,0 +1,12 @@
+Send patch to maintainer
+
+./scripts/checkpatch.pl <patch file>
+./scripts/get_maintainer.pl <patch file>
+git send-email --no-chain-reply-to --thread --suppress-cc all \
+--smtp-server /usr/bin/msmtp \
+--from 'Kai-Chuan Hsieh <kai.chiuan@gmail.com>' \
+--to '<maintainer emale>' \
+--to '<maintainer email>' \
+--to '<open list>' \
+<patch file>
+================================================================
