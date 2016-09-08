@@ -5,7 +5,7 @@ Send patch to maintainer
 git send-email --no-chain-reply-to --thread --suppress-cc all \
 --smtp-server /usr/bin/msmtp \
 --from 'Kai-Chuan Hsieh <kai.chiuan@gmail.com>' \
---to '<maintainer emale>' \
+--to '<maintainer email>' \
 --to '<maintainer email>' \
 --to '<open list>' \
 <patch file>
@@ -15,4 +15,35 @@ Push new project to github
 1. Create new repository in Github
 2. git remote add origin https://github.com/KaiChuan-Hsieh/<repository>.git
 3. git push -u origin master
+================================================================
+Miniarm sdcard create instruction
+
+Miniarm compile uboot
+
+CROSS_COMPILE=arm-linux-gnueabi- make O=miniarm-rk3288 miniarm-rk3288_defconfig all
+./miniarm-rk3288/tools/mkimage -n rk3288 -T rksd -d miniarm-rk3288/spl/u-boot-spl-dtb.bin out
+
+Miniarm compile kernel and device tree
+
+make zImage ARCH=arm -j4 CROSS_COMPILE=arm-linux-gnueabi-
+make ARCH=arm rk3288-miniarm.dtb CROSS_COMPILE=arm-linux-gnueabi-
+
+Image create SOP
+1. Flash uboot
+	sudo dd if=out of=/dev/sdX seek=64
+	sudo dd if=miniarm-rk3288/u-boot-dtb.img of=/dev/sdX seek=256
+
+2. Use parted tool to part sdcard
+	a. mklabel msdos
+	b. mkpart primary fat32 8192 139263
+	c. mkpart primary ext4 138264 4333567
+
+3. Copy file, file includes:
+	1. extlinux
+	2. zImage
+	3. rk3288-miniarm.dtb
+
+4. Copy rootfs
+	sudo dd if=rootfs.img of=/dev/sdd2 bs=512 conv=notrunc
+
 ================================================================
