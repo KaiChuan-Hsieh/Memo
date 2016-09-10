@@ -47,3 +47,20 @@ Image create SOP
 	sudo dd if=rootfs.img of=/dev/sdd2 bs=512 conv=notrunc
 
 ================================================================
+Send mail within Command line
+
+apt-get install msmtp
+apt-get install mutt
+
+config ~/.msmtprc
+config ~/.muttrc
+
+send mail without attachment:
+
+echo "Subject: Hello this is subject" | msmtp recipient@domain.com
+cat message.txt | msmtp recipient@domain.com
+
+send mail with attachment:
+mutt -a <append filename> -s "<subject>" -- recipient@domain.com < message.txt
+================================================================
+
