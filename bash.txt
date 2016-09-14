@@ -1,0 +1,20 @@
+Convert ascii character to hex
+
+printf %02x \'<char>
+================================================================
+Convert hex string without 0x to character
+
+printf "\x<hex>"
+================================================================
+Get substring
+
+${str:idx:len}
+
+str: The whole string
+index: Start index
+len: Character number
+================================================================
+$#: Number of parameters
+$$: Current Process ID
+$@: Parameter list
+===============================================================
