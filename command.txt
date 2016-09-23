@@ -22,6 +22,7 @@ Miniarm compile uboot
 
 CROSS_COMPILE=arm-linux-gnueabi- make O=miniarm-rk3288 miniarm-rk3288_defconfig all
 ./miniarm-rk3288/tools/mkimage -n rk3288 -T rksd -d miniarm-rk3288/spl/u-boot-spl-dtb.bin out
+cat miniarm-rk3288/u-boot.bin >> out
 
 Miniarm compile kernel and device tree
 
@@ -31,12 +32,11 @@ make ARCH=arm rk3288-miniarm.dtb CROSS_COMPILE=arm-linux-gnueabi-
 Image create SOP
 1. Flash uboot
 	sudo dd if=out of=/dev/sdX seek=64
-	sudo dd if=miniarm-rk3288/u-boot-dtb.img of=/dev/sdX seek=256
 
 2. Use parted tool to part sdcard
 	a. mklabel msdos
 	b. mkpart primary fat32 8192 139263
-	c. mkpart primary ext4 138264 4333567
+	c. mkpart primary ext4 139264 4333567
 
 3. Copy file, file includes:
 	1. extlinux
