@@ -1,0 +1,42 @@
+Chapter 1: Indentation
+a. Always having 8-character.
+b. Never program more than 3 levels of indentation.
+c. "case" label align the "switch" statement.
+d. Don't put multiple statements on a single line.
+e. Don't put multiple assignments on a single line.
+
+Chapter 2: Breaking long lines and strings
+a. The limit on the length of lines is 80 columns
+b. Descendants are always substantially shorter than the parent.
+c. Never break user-visible strings such as printk messages.
+
+Chapter 3: Placing Braces and Spaces
+a. Put the opening brace last on the line, and put the closing first.
+b. Functions have the opening brace at the beginning of the next line.
+c. Do not unnecessarily use braces where a single statement will do.
+d. If only one branch of a conditional statement is a single statement, use
+   braces in both branches.
+e. Use a apce after (most) keywords.
+   A space after these keywords:
+       if, switch, case, for, do, while
+   but not with sizeof, typeof, alignof, or __attribute__.
+f. Do not add spaces around (inside) parenthesized expressions.
+g. Declaration of pointer data or a function that return a pointer type, the
+   '*' is adjacent to the data name or function name.
+h. Use one space around (on each side of) most binary and ternary operators,
+   such as any of these:
+        =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
+i. No space after unary operators:
+        &  *  +  -  ~  !  sizeof  typeof  alignof  __attribute__  defined
+j. No space before the postfix increnment & decrement unary operators:
+        ++  --
+k. No space after the prefix increnment & decrement unary operators:
+        ++  --
+l. No space around the '.' and "->" structure member operators.
+m. Do not leave trailing whitespace at the ends of lines.
+
+Chapter 4: Naming
+a. Mixed-case names are frowned upon.
+b. GLOBAL variables need to have descriptive names.
+c. Enconding the type of a function into the name is brain damaged.
+d. LOCAL variable names should be short.
