@@ -72,3 +72,11 @@ make localmodconfig
 make menuconfig
 fakeroot make-kpkg --initrd --append-to-version=-patched kernel-image kernel-headers
 ================================================================
+Boot by virtual machine
+
+Create qemu image with qcow2 format:
+qemu-img create -f qcow2 <filename>.qcow2 <storage usage size>
+
+Boot from iso file
+kvm -m 512 -localtime -hda <filename>.qcow2 -cdrom <iso file>.iso -boot d
+===============================================================
