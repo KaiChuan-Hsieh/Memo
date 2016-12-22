@@ -17,4 +17,5 @@ len: Character number
 $#: Number of parameters
 $$: Current Process ID
 $@: Parameter list
+$?: Status of the last executed program
 ===============================================================
